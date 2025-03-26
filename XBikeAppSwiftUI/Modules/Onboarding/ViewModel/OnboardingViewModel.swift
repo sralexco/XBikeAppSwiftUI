@@ -26,7 +26,7 @@ class OnboardingViewModel : ObservableObject {
         currentStep = steps[index]
     }
     
-    func nextPage(){
+    func nextStep(){
         if index < steps.count - 1 {
             index += 1
             currentStep =  steps[index]

@@ -38,7 +38,7 @@ struct PageView: View {
         .padding()
         .background(Color.orangeOne)
         NextButtonView(index: $VM.index) {
-            VM.nextPage()
+            VM.nextStep()
         }
     }
 }
