@@ -11,7 +11,7 @@ import SwiftUI
 struct XBikeAppSwiftUIApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            OnboardingView()
         }
     }
 }

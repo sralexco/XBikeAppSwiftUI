@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "step3Onboarding.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
