@@ -9,5 +9,6 @@ import SwiftUI
 
 extension Color {
     static let orangeOne = Color(UIColor(hex: "FF8E25"))
-    
+    static let blackOne = Color(UIColor(hex: "000000"))
+    static let grayOne = Color(UIColor(hex: "B0BAC9"))
 }
