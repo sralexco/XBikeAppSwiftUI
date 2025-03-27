@@ -18,6 +18,7 @@ class CurrentRideViewModel: BaseViewModel {
     @Published var elapsedTime: TimeInterval = 0
     @Published private var timer: Timer?
     @Published var timerString = "00 : 00 : 00"
+    @Published var finalTimerString = "00 : 00 : 00"
     
     @Published var distance = "10.0 km"
  
@@ -28,7 +29,6 @@ class CurrentRideViewModel: BaseViewModel {
     }
     
     /// Timer
-    ///
     func startPause() {
         if isRunning {
             timer?.invalidate()
@@ -50,6 +50,7 @@ class CurrentRideViewModel: BaseViewModel {
     func stop() {
         timer?.invalidate()
         isRunning = false
+        finalTimerString = timerString
         
         showTimer = false
         showResult = true

@@ -16,7 +16,7 @@ struct ResultRideView: View {
                 Text("Your time was")
                     .font(.system(size: 20, weight: .medium))
                     .padding(.top, 26)
-                Text(VM.getCurrentTimerString())
+                Text(VM.finalTimerString)
                     .font(.system(size: 36, weight: .medium))
                     .padding(.top, 4)
                 Text("Distance")
