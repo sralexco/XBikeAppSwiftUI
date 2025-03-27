@@ -15,9 +15,11 @@ struct CurrentRideView: View {
             VStack {
                 NavigationBar(title: VM.title, showRight: true, imgRight: "ic_add_NavBar",
                               callbackRight: { VM.addRide() })
-                    .frame(height: 60)
-                Spacer()
+                    .frame(height: 48)
+                GoogleMapsView()
+                    .padding(.top, 0)
             }
+            
             TimerRideView(VM:VM)
                 .opacity(VM.showTimer ? 1 : 0)
             ResultRideView(VM:VM)
@@ -25,10 +27,6 @@ struct CurrentRideView: View {
             StoredRideView(VM:VM)
                 .opacity(VM.showStore ? 1 : 0)
            
-            Text("")
-            Spacer()
-            Spacer()
-            
         }.background(.gray)
         .alert(item: $VM.activeAlert) { alertItem in alertItem.alert }
     }
