@@ -21,9 +21,7 @@ struct HomeView: View {
     
     var body: some View {
         TabView {
-            VStack {
-                Text("Current Ride")
-            }
+            CurrentRideView()
             .tabItem {
                 Label("Current Ride", systemImage: "speedometer")
             }

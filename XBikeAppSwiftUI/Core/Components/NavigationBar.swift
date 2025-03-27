@@ -21,7 +21,7 @@ struct NavigationBar: View {
     var callbackLeft: () -> () = { }
     var callbackRight: () -> () = { }
     
-    init(title: String, showLeft:Bool = true, showRight:Bool = false, imgLeft:String = "",
+    init(title: String, showLeft:Bool = false, showRight:Bool = false, imgLeft:String = "",
          imgRight:String = "", callbackLeft: @escaping () -> () = {}, callbackRight: @escaping () -> () = {}){
         vm.title = title
         vm.showLeft = showLeft
@@ -49,7 +49,7 @@ struct NavigationBar: View {
                             }
                             .frame(width: 40, height: 64)
                         }
-                        .background(.white)
+                        .background(.clear)
                         .padding(.leading, 10)
                     } else {
                         HStack {}
@@ -61,7 +61,7 @@ struct NavigationBar: View {
                     Text(vm.title)
                         .padding(.top, 20)
                         .font(.system(size: 20, weight: .medium))
-                        .foregroundColor(.blackOne)
+                        .foregroundColor(.white)
                     
                     Spacer()
                     
@@ -77,7 +77,7 @@ struct NavigationBar: View {
                             }
                             .frame(width: 40, height: 64)
                         }
-                        .background(.white)
+                        .background(.clear)
                         .padding(.trailing, 10)
                     } else {
                         HStack {}
@@ -95,7 +95,7 @@ struct NavigationBar: View {
             }
             .zIndex(1)
         }
-        .background(.white)
+        .background(Color.orangeOne)
         .frame(height: 50)
         .frame(maxHeight: .infinity, alignment: .top)
     }
