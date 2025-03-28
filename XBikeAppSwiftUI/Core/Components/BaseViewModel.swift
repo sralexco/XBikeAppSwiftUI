@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-//import Combine
 
 class BaseViewModel: ObservableObject {
     @Published var activeAlert: AlertItem?
@@ -28,11 +27,10 @@ class BaseViewModel: ObservableObject {
             alert: Alert(
                 title: Text(title),
                 message: Text(message),
-                dismissButton: .default(Text("OK")) // Remove action for testing
+                dismissButton: .default(Text("OK"))
             )
         )
     }
-    
 }
 
 struct AlertItem: Identifiable {

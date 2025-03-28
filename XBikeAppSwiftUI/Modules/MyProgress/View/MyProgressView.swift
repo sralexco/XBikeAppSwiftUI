@@ -8,9 +8,9 @@
 import SwiftUI
 import SwiftData
 
-struct MyProgressView : View {
+struct MyProgressView: View {
     @ObservedObject private var VM = MyProgressViewModel()
-    @Query var rides: [RideSDModel]
+    @Query(sort: \RideSDModel.createdAt, order: .reverse) var rides: [RideSDModel]
     
     var body: some View {
         VStack {
@@ -22,6 +22,6 @@ struct MyProgressView : View {
                     .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
             }
             .listStyle(.plain)
-        }
+        }.background(.white)
     }
 }

@@ -15,7 +15,7 @@ struct CurrentRideView: View {
         ZStack {
             VStack {
                 NavigationBar(title: VM.title, showRight: true, imgRight: "ic_add_NavBar",
-                              callbackRight: { VM.addRide()} )
+                              callbackRight: { VM.addRideAction()} )
                     .frame(height: 48)
                 GoogleMapsView(VM: VM)
                     .padding(.top, 0)

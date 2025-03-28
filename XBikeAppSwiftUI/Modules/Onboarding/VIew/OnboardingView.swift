@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct OnboardingView: View {
-    
     @StateObject var VM = OnboardingViewModel()
     
     var body: some View {
@@ -20,6 +19,7 @@ struct OnboardingView: View {
                 PageView(VM: VM)
             }
         }
+        .background(Color.orangeOne)
     }
 }
 

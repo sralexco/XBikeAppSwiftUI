@@ -7,8 +7,6 @@
 
 import SwiftUI
 
-
-
 class OnboardingViewModel : ObservableObject {
     @Published var index: Int = 0
     @Published var steps: [StepOnboardingModel] = []
@@ -17,6 +15,7 @@ class OnboardingViewModel : ObservableObject {
     
     init(){
        fillSteps()
+       UserDefaults.standard.set(true, forKey: "isShowedOnboarding")
     }
     
     private func fillSteps(){
@@ -36,5 +35,4 @@ class OnboardingViewModel : ObservableObject {
             }
         }
     }
-    
 }

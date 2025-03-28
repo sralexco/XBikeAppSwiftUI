@@ -62,11 +62,11 @@ struct ResultRideView: View {
     }
     
     private func storeAction(){
-        VM.store()
+        VM.storeAction()
     }
     
     private func deleteAction(){
-        VM.delete()
+        VM.deleteAction()
     }
 }
 

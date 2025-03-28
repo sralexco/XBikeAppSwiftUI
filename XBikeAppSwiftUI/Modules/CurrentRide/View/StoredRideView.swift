@@ -44,7 +44,7 @@ struct StoredRideView: View {
     }
     
     private func okAction(){
-        VM.finish()
+        VM.finishAction()
     }
     
 }

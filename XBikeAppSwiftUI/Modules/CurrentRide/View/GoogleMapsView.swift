@@ -12,7 +12,7 @@ import Combine
 struct GoogleMapsView: UIViewRepresentable {
     @ObservedObject var VM: CurrentRideViewModel
     @StateObject var locationManager = LocationManager()
-    private let zoom: Float = 16.0
+    private let zoom: Float = 17.0
    
     func makeCoordinator() -> MapCoordinator {
         return MapCoordinator(parent: self)
@@ -33,7 +33,13 @@ struct GoogleMapsView: UIViewRepresentable {
     }
     
     func updateUIView(_ mapView: GMSMapView, context: Context) {
-      
+        guard let location = locationManager.manager.location else { return }
+        let newCamera = GMSCameraPosition.camera(
+            withLatitude: location.coordinate.latitude,
+            longitude: location.coordinate.longitude,
+            zoom: zoom
+        )
+        mapView.animate(to: newCamera)
     }
     
 }
@@ -59,7 +65,7 @@ class MapCoordinator: NSObject, GMSMapViewDelegate {
         parent.locationManager.$location
             .compactMap { $0 } 
             .sink { newLocation in
-                if self.parent.VM.isRunning == true && self.parent.VM.isFinished == false {
+                if self.parent.VM.isRunning == true {
                     let coordinate = CLLocationCoordinate2D(latitude: newLocation.latitude, longitude: newLocation.longitude)
                     self.lastLocation = coordinate
                     self.path.add(coordinate)
@@ -78,7 +84,6 @@ class MapCoordinator: NSObject, GMSMapViewDelegate {
             .filter { $0 }
             .sink { _ in
                 self.parent.VM.isInitiated = false
-                
                 let lat: CLLocationDegrees = self.parent.locationManager.manager.location?.coordinate.latitude ?? 0
                 let lon: CLLocationDegrees = self.parent.locationManager.manager.location?.coordinate.longitude ?? 0
                 let coordinate = CLLocationCoordinate2D(latitude: lat, longitude: lon)
@@ -86,7 +91,7 @@ class MapCoordinator: NSObject, GMSMapViewDelegate {
                 marker.position = coordinate
                 marker.title = "Start Point"
                 marker.snippet = "Point A"
-                marker.icon = UIImage(named: "ic_markerStart")?.resized(to: CGSize(width: 40, height: 40))
+                marker.icon = UIImage(named: "ic_markerStart")?.resized(to: CGSize(width: 30, height: 30))
                 marker.map = mapView
                 self.markers.append(marker)
                  
@@ -108,12 +113,12 @@ class MapCoordinator: NSObject, GMSMapViewDelegate {
             .filter { $0 }
             .sink { _ in
                 self.parent.VM.isFinished = false
-                self.parent.VM.updateLocations(startLocation: self.startLocation, endLocation: self.lastLocation)
+                self.parent.VM.finishRideLocations(startLocation: self.startLocation, endLocation: self.lastLocation)
                 let marker = GMSMarker()
                 marker.position = self.lastLocation
                 marker.title = "End Point"
                 marker.snippet = "Point B"
-                marker.icon = UIImage(named: "ic_markerEnd")?.resized(to: CGSize(width: 40, height: 40))
+                marker.icon = UIImage(named: "ic_markerEnd")?.resized(to: CGSize(width: 30, height: 30))
                 marker.map = mapView
                 self.markers.append(marker)
             }
@@ -143,14 +148,4 @@ class MapCoordinator: NSObject, GMSMapViewDelegate {
        polyline.strokeWidth = 5
    }
     
-}
-
-extension UIImage {
-    func resized(to size: CGSize) -> UIImage? {
-        UIGraphicsBeginImageContextWithOptions(size, false, UIScreen.main.scale)
-        self.draw(in: CGRect(origin: .zero, size: size))
-        let resizedImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        return resizedImage
-    }
 }
