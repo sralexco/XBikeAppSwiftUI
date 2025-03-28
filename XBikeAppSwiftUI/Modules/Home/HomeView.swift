@@ -25,9 +25,7 @@ struct HomeView: View {
             .tabItem {
                 Label("Current Ride", systemImage: "speedometer")
             }
-            VStack {
-                Text("My Progress")
-            }
+            MyProgressView()
             .tabItem {
                 Label("My Progress", systemImage: "tray.full")
             }
