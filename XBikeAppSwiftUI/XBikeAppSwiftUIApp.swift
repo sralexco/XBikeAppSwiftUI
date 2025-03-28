@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 @main
 struct XBikeAppSwiftUIApp: App {
@@ -14,5 +15,6 @@ struct XBikeAppSwiftUIApp: App {
         WindowGroup {
             HomeView()
         }
+        .modelContainer(for: RideSDModel.self)
     }
 }
