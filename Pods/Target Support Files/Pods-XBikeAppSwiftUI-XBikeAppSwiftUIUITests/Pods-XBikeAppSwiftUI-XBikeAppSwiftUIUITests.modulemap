@@ -1,0 +1,6 @@
+framework module Pods_XBikeAppSwiftUI_XBikeAppSwiftUIUITests {
+  umbrella header "Pods-XBikeAppSwiftUI-XBikeAppSwiftUIUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

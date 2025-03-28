@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "ic_add_NavBar1.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
