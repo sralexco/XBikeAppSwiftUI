@@ -8,6 +8,7 @@ import SwiftUI
 import CoreLocation
 import Combine
 import GoogleMaps
+import SwiftData
 
 class CurrentRideViewModel: BaseViewModel {
     @Published var title = "Current Ride"
@@ -41,8 +42,11 @@ class CurrentRideViewModel: BaseViewModel {
     @Published var startAddress: String = ""
     @Published var endAddress: String = ""
     
+    var modelContext: ModelContext?
+    
     init(locationManager: LocationManager = LocationManager()) {
         self.locationManager = locationManager
+        //self.modelContext = modelContext
         super.init()
         self.setupAuthorizationListener()
         self.getAuthorizationLocation()
@@ -134,10 +138,17 @@ class CurrentRideViewModel: BaseViewModel {
     }
     
     func store() {
+        saveRideModel()
         showTimer = false
         showResult = false
         showStore = true
     }
+    
+    func saveRideModel() {
+        let newRide = RideSDModel(finalTime: finalTimerString, startAddress: startAddress,
+                                  endAddress: endAddress, distance: distance)
+        modelContext?.insert(newRide)
+     }
     
     func delete() {
         showTimer = false

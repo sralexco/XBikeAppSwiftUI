@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct CurrentRideView: View {
+    @Environment(\.modelContext) private var modelContext
     @StateObject var VM = CurrentRideViewModel()
     
     var body: some View {
@@ -26,6 +27,7 @@ struct CurrentRideView: View {
             StoredRideView(VM:VM)
                 .opacity(VM.showStore ? 1 : 0)
         }
+        .onAppear { VM.modelContext = modelContext }
         .background(.clear)
         .alert(item: $VM.activeAlert) { alertItem in alertItem.alert }
     }
