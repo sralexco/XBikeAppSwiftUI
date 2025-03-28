@@ -14,27 +14,19 @@ struct CurrentRideView: View {
         ZStack {
             VStack {
                 NavigationBar(title: VM.title, showRight: true, imgRight: "ic_add_NavBar",
-                              callbackRight: { VM.addRide() })
+                              callbackRight: { VM.addRide()} )
                     .frame(height: 48)
-                GoogleMapsView()
+                GoogleMapsView(VM: VM)
                     .padding(.top, 0)
             }
-            
             TimerRideView(VM:VM)
                 .opacity(VM.showTimer ? 1 : 0)
             ResultRideView(VM:VM)
                 .opacity(VM.showResult ? 1 : 0)
             StoredRideView(VM:VM)
                 .opacity(VM.showStore ? 1 : 0)
-           
-        }.background(.gray)
+        }
+        .background(.clear)
         .alert(item: $VM.activeAlert) { alertItem in alertItem.alert }
     }
-    
-    
-    
 }
-
-
-
-

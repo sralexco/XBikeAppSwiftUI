@@ -44,9 +44,22 @@
 		FBACFB943195F8CEC9669C27 /* Pods-XBikeAppSwiftUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XBikeAppSwiftUITests.debug.xcconfig"; path = "Target Support Files/Pods-XBikeAppSwiftUITests/Pods-XBikeAppSwiftUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		FAB3680A2D95C3FE00D528BD /* Exceptions for "XBikeAppSwiftUI" folder in "XBikeAppSwiftUI" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = FACAC38C2D94746800F7F7B8 /* XBikeAppSwiftUI */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		FACAC38F2D94746800F7F7B8 /* XBikeAppSwiftUI */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				FAB3680A2D95C3FE00D528BD /* Exceptions for "XBikeAppSwiftUI" folder in "XBikeAppSwiftUI" target */,
+			);
 			path = XBikeAppSwiftUI;
 			sourceTree = "<group>";
 		};
@@ -542,8 +555,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"XBikeAppSwiftUI/Preview Content\"";
+				DEVELOPMENT_TEAM = 4LGFTVM7WD;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = XBikeAppSwiftUI/Info.plist;
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Need location for use the app";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Need location for use the app";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -573,8 +588,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"XBikeAppSwiftUI/Preview Content\"";
+				DEVELOPMENT_TEAM = 4LGFTVM7WD;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = XBikeAppSwiftUI/Info.plist;
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Need location for use the app";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Need location for use the app";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

@@ -14,6 +14,7 @@ struct TimerRideView: View {
             Spacer()
             VStack {
                 Text(VM.timerString)
+                    .foregroundColor(.black)
                     .font(.system(size: 36, weight: .medium))
                     .padding(.top, 40)
                 HStack() {

@@ -15,6 +15,7 @@ struct StoredRideView: View {
             VStack {
                 Spacer()
                 Text("Your progress has been\ncorrectly stored!")
+                    .foregroundColor(.black)
                     .font(.system(size: 26, weight: .medium))
                     .multilineTextAlignment(.center)
                 HStack() {
