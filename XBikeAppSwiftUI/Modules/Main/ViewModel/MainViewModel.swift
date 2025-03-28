@@ -20,10 +20,4 @@ class MainViewModel: BaseViewModel {
         let state = UserDefaults.standard.bool(forKey: "isShowedOnboarding")
         isShowedOnboarding = state
     }
-    
-    /*
-    func showedOnboarding(){
-        UserDefaults.standard.set(true, forKey: "isShowedOnboarding")
-        isShowedOnboarding = true
-    } */
 }

@@ -8,9 +8,9 @@
 import SwiftUI
 import SwiftData
 
-struct MyProgressView : View {
+struct MyProgressView: View {
     @ObservedObject private var VM = MyProgressViewModel()
-    @Query var rides: [RideSDModel]
+    @Query(sort: \RideSDModel.createdAt, order: .reverse) var rides: [RideSDModel]
     
     var body: some View {
         VStack {

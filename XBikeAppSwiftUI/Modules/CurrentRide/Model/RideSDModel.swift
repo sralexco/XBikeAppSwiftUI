@@ -6,6 +6,7 @@
 //
 
 import SwiftData
+import Foundation
 
 @Model
 class RideSDModel {
@@ -13,6 +14,7 @@ class RideSDModel {
     var startAddress: String
     var endAddress: String
     var distance: String
+    var createdAt: Date = Date()
     
     init(finalTime: String, startAddress: String, endAddress: String, distance: String) {
         self.finalTime = finalTime
@@ -21,4 +23,3 @@ class RideSDModel {
         self.distance = distance
     }
 }
-    

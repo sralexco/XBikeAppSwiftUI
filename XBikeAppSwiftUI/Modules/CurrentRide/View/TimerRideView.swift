@@ -23,7 +23,6 @@ struct TimerRideView: View {
                            label: { Text(VM.isRunning ? "PAUSE" : "START")
                             .font(.system(size: 18, weight: .medium))
                             })
-                           
                         .tint(Color.orangeOne)
                     Spacer()
                     Rectangle()
@@ -38,7 +37,6 @@ struct TimerRideView: View {
                 }
                 .padding(.top, 16)
                 .padding(.bottom, 36)
-                
             }
             .frame(maxWidth: .infinity)
             .background(.white)
@@ -49,13 +47,11 @@ struct TimerRideView: View {
     }
     
     private func startAction(){
-        VM.startPause()
+        VM.startPauseAction()
     }
     
     private func stopAction(){
-        if VM.elapsedTime > 0 {
-            VM.stop()
-        }
+        VM.stopAction()
     }
     
 }
