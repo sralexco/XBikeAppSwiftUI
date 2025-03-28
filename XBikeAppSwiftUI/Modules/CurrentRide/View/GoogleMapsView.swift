@@ -12,7 +12,7 @@ import Combine
 struct GoogleMapsView: UIViewRepresentable {
     @ObservedObject var VM: CurrentRideViewModel
     @StateObject var locationManager = LocationManager()
-    private let zoom: Float = 16.0
+    private let zoom: Float = 17.0
    
     func makeCoordinator() -> MapCoordinator {
         return MapCoordinator(parent: self)
@@ -33,7 +33,13 @@ struct GoogleMapsView: UIViewRepresentable {
     }
     
     func updateUIView(_ mapView: GMSMapView, context: Context) {
-      
+        guard let location = locationManager.manager.location else { return }
+        let newCamera = GMSCameraPosition.camera(
+                withLatitude: location.coordinate.latitude,
+                longitude: location.coordinate.longitude,
+                zoom: zoom
+            )
+        mapView.animate(to: newCamera)
     }
     
 }
@@ -86,7 +92,7 @@ class MapCoordinator: NSObject, GMSMapViewDelegate {
                 marker.position = coordinate
                 marker.title = "Start Point"
                 marker.snippet = "Point A"
-                marker.icon = UIImage(named: "ic_markerStart")?.resized(to: CGSize(width: 40, height: 40))
+                marker.icon = UIImage(named: "ic_markerStart")?.resized(to: CGSize(width: 30, height: 30))
                 marker.map = mapView
                 self.markers.append(marker)
                  
@@ -113,7 +119,7 @@ class MapCoordinator: NSObject, GMSMapViewDelegate {
                 marker.position = self.lastLocation
                 marker.title = "End Point"
                 marker.snippet = "Point B"
-                marker.icon = UIImage(named: "ic_markerEnd")?.resized(to: CGSize(width: 40, height: 40))
+                marker.icon = UIImage(named: "ic_markerEnd")?.resized(to: CGSize(width: 30, height: 30))
                 marker.map = mapView
                 self.markers.append(marker)
             }

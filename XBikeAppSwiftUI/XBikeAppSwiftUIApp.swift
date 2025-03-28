@@ -13,7 +13,7 @@ struct XBikeAppSwiftUIApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     var body: some Scene {
         WindowGroup {
-            HomeView()
+            MainView()
         }
         .modelContainer(for: RideSDModel.self)
     }
